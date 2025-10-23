@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.#include <stdio.h>
 #include "main.h"
 
 /**
@@ -13,7 +13,7 @@ while (n <= 98)
 {
 printf("%d", n);
 if (n != 98)
-printf(", ")
+printf(", ");
 n++;
 }
 }
@@ -21,7 +21,7 @@ else
 {
 while (n >= 98)
 {
-printf("%d", n)
+printf("%d", n);
 if (n != 98)
 printf(", ");
 n--;
