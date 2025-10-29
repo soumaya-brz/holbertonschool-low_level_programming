@@ -16,7 +16,7 @@ char *cap_string(char *s)
 
 	while (s[i] != '\0')
 	{
-		for (j = 0; separators[j] != '\0')
+		for (j = 0; separators[j] != '\0');
 		{
 			if (s[i] == separators[j])
 			{
