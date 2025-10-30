@@ -33,3 +33,4 @@ i++; /* très important : avancer dans la chaîne ici */
 
 return (s);
 }
+encodes a string into 1337
