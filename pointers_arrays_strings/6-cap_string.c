@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * cap_string - capitalizes all words of a string
  * @s: pointer to the string to modify
@@ -7,28 +8,28 @@
  */
 char *cap_string(char *s)
 {
-	int i = 0;
-	int j;
-	char separators[] = " \t\n,;.!?\"(){}";
+int i = 0;
+int j;
+char separators[] = " \t\n,;.!?\"(){}";
 
-	if (s[0] >= 'a' && s[0] <= 'z')
-		s[0] = s[0] - 32;
+if (s[0] >= 'a' && s[0] <= 'z')
+s[0] -= 32;
 
-	while (s[i] != '\0')
-	{
-		for (j = 0; separators[j] != '\0'; j++)
-		{
-			if (s[i] == separators[j])
-			{
-				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
-				{
-				s[i + 1] = s[i + 1] - 32;
-				break;
-				}
-			}
-			i++;
-		}
+while (s[i] != '\0')
+{
+for (j = 0; separators[j] != '\0'; j++)
+{
+if (s[i] == separators[j])
+{
+if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+{
+s[i + 1] -= 32;
+}
+break;
+}
+}
+i++; /* très important : avancer dans la chaîne ici */
+}
 
-
-		return (s);
-	}
+return (s);
+}
