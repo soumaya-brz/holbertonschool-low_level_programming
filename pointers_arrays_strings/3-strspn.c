@@ -23,7 +23,7 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (*s == *p)
 			{
-				found = 1
+				found = 1;
 					break;
 			}
 		}
