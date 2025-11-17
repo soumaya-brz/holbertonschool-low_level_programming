@@ -1,3 +1,2 @@
 # Function Pointers
-Project about using pointers to functions in C.
-
+This project is about using function pointers in C.
