@@ -1,8 +1,14 @@
 #ifndef CALC_H
 #define CALC_H
 
+#include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * struct op - struct that associates an operator with a function
+ * @op: the operator as a string ("+", "-", "*", "/", "%")
+ * @f: pointer to the function that performs the operation
+ */
 typedef struct op
 {
 	char *op;
