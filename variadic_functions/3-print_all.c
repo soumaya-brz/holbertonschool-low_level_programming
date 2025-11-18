@@ -52,6 +52,13 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0, j;
 	char *separator = "";
 
+	printer_t printers[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+	};
+
 	va_start(args, format);
 
 	while (format && format[i])
