@@ -6,8 +6,9 @@
  * print_all - prints anything based on format
  * @format: list of types of arguments passed
  * 'c' = char, 'i' = int, 'f' = float, 's' = string
- * ...:arguments to print
+ * ...: arguments to print
  */
+
 void print_all(const char * const format, ...)
 {
 	va_list args;
@@ -26,12 +27,12 @@ void print_all(const char * const format, ...)
 		}
 		if (format[i] == 'i')
 		{
-			printf("%s%c", separator, va_arg, int));
+			printf("%s%d", separator, va_arg(args, int));
 			separator = ", ";
 		}
-		if (format[i] == 'i')
+		if (format[i] == 'f')
 		{
-			printf("%s%d", separator, va_args, int));
+			printf("%s%f", separator, va_arg(args, double));
 			separator = ", ";
 		}
 		if (format[i] == 's')
