@@ -3,45 +3,70 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - prints anything based on format
- * @format: list of types of arguments passed
- * 'c' = char, 'i' = int, 'f' = float, 's' = string
- * ...: arguments to print
+ * print_char - prints a char
+ * @args: va_list containing the char to print
  */
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
 
+/**
+ * print_int - prints an int
+ * @args: va_list containing the int to print
+ */
+void print_int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+
+/**
+ * print_float - prints a float
+ * @args: va_list containing the float to print
+ */
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+
+/**
+ * print_string - prints a string or (nil) if NULL
+ * @args: va_list containing the string to print
+ */
+void print_string(va_list args)
+{
+	char *str = va_arg(args, char *);
+
+	if (!str)
+		str = "(nil)";
+	printf("%s", str);
+}
+
+/**
+ * print_all - prints anything based on a format string
+ * @format: list of types of arguments passed
+ */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	unsigned int i = 0;
-	char *str;
+	unsigned int i = 0, j;
 	char *separator = "";
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		if (format[i] == 'c')
+		j = 0;
+
+		while (j < 4)
 		{
-			printf("%s%c", separator, va_arg(args, int));
-			separator = ", ";
-		}
-		if (format[i] == 'i')
-		{
-			printf("%s%d", separator, va_arg(args, int));
-			separator = ", ";
-		}
-		if (format[i] == 'f')
-		{
-			printf("%s%f", separator, va_arg(args, double));
-			separator = ", ";
-		}
-		if (format[i] == 's')
-		{
-			str = va_arg(args, char *);
-			if (!str)
-				str = "(nil)";
-			printf("%s%s", separator, str);
-			separator = ", ";
+			if (format[i] == *printers[j].symbol)
+			{
+				printf("%s", separator);
+				printers[j].print(args);
+				separator = ", ";
+			}
+			j++;
 		}
 		i++;
 	}
