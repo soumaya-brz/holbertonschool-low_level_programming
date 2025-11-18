@@ -52,6 +52,7 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0, j;
 	char *separator = "";
 
+	/* Table associant symbole et fonction */
 	printer_t printers[] = {
 		{"c", print_char},
 		{"i", print_int},
@@ -64,10 +65,9 @@ void print_all(const char * const format, ...)
 	while (format && format[i])
 	{
 		j = 0;
-
 		while (j < 4)
 		{
-			if (format[i] == *printers[j].symbol)
+			if (format[i] == *printers[j].symbol) /* 1er if */
 			{
 				printf("%s", separator);
 				printers[j].print(args);
